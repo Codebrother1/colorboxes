@@ -1,0 +1,26 @@
+import React, { Component } from "react";
+import { choice } from "./helper";
+import "./Box.css";
+
+class Box extends Component {
+  static defaultProps = {
+    allColors: ["purple", "green", "blue", "red"]
+  };
+  constructor(props) {
+    super(props);
+    this.state = { color: choice(this.props.allColors) };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {}
+  render() {
+    return (
+      <div
+        className="Box"
+        style={{ backgroundColor: this.state.color }}
+        onClick={this.handleClick}
+      ></div>
+    );
+  }
+}
+
+export default Box;
